@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Epilogue';
+    background: var(--Almost-White);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+:root {
+    --Almost-White: hsl(0, 0%, 98%);
+    --Medium-Gray: hsl(0, 0%, 41%);
+    --Almost-Black: hsl(0, 0%, 8%);
+}
+
+nav {
+    padding: 2rem;
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-list {
+    position: absolute;
+    top: 0;
+    background: white;
+    width: 45vw;
+    display: grid;
+    opacity: 0;
+    pointer-events: none;
+    padding-inline: 2rem;
+    padding-block: 6rem 16rem;
+    box-shadow: -200px 0px 300px 0px var(--Almost-Black);
+    gap: 1rem;
+    right: 0;
+    transition: all 250ms;
+    z-index: 1;
+}
+
+.nav-list ul {
+    list-style: none;
+    gap: 1rem;
+}
+
+.nav-list > ul {
+    padding: 0;
+    display: grid;
+    margin: 0;
+}
+
+.nav-list ul li {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+
+.nav-list ul li:hover {
+    filter: brightness(0) saturate(100%)
+}
+
+.dropdown {
+    display: none;
+}
+
+.dropdown > * {
+    padding: .5rem;
+}
+
+.active {
+    display: block;
+}
+
+.nav-list ul li a {
+    text-decoration: none;
+    color: var(--Medium-Gray);
+    transition: all 250ms;
+}
+
+.nav-list ul li a:hover,
+.nav-list ul li a:focus-within {
+    color: var(--Almost-Black);
+}
+
+.last-two {
+    display: grid;
+    gap: 1rem;
+}
+
+.last-two p {
+    color: var(--Medium-Gray);
+    cursor: pointer;
+    margin: 0;
+    transition: all 250ms;
+}
+
+.last-two p:hover,
+.last-two p:focus-within {
+    color: var(--Almost-Black);
+}
+
+.last-two button {
+    background: none;
+    color: var(--Medium-Gray);
+    outline: 1px solid var(--Medium-Gray);
+}
+
+.menu {
+    position: relative;
+    width: 1.5rem;
+    aspect-ratio: 1 / 1;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.menu img {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    position: absolute;
+    transition: opacity 250ms;
+}
+
+section {
+    display: grid;
+}
+
+.image-container * {
+    width: 100%;
+}
+
+.text-container {
+    text-align: center;
+    display: grid;
+    line-height: 1.5;
+    padding: 2rem;
+    gap: 1rem;
+}
+
+.text-container > * {
+    margin: 0;
+}
+
+.text-container h1 {
+    font-size: 2rem;
+    color: var(--Almost-Black);
+}
+
+.text-container p {
+    color: var(--Medium-Gray);
+}
+
+.text-container button {
+    font-size: 1rem;
+    justify-self: center;
+    color: var(--Almost-White);
+    background: var(--Almost-Black);
+}
+
+button {
+    transition: all 250ms;
+    font-family: inherit;
+    padding: 1rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover,
+button:focus-within {
+    background: var(--Almost-White);
+    color: var(--Almost-Black);
+    outline: 1px solid var(--Almost-Black);
+}
+
+.company-icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.company-icons > * {
+    width: 100%;
+    cursor: pointer;
+}
+
+.company-icons > *:hover,
+.company-icons > *:focus-within {
+    filter: brightness(0) saturate(100%)
+}
+
+@media screen and (min-width: 375px) {
+    .nav-list {
+        opacity: 1;
+        position: relative;
+        padding: 0;
+        pointer-events: fill;
+        width: 100%;
+        background: none;
+        display: flex;
+        right: 1rem;
+        justify-content: space-between;
+        box-shadow: none;
+        font-size: .8rem;
+    }
+
+    .nav-list > ul {
+        display: flex;
+    }
+
+    .dropdown {
+        background: white;
+        position: absolute;
+        padding: .5rem;
+        border-radius: 10px;
+        box-shadow: 0px 0px 100px 0px rgba(0,0,0,0.1);
+    }
+
+    .dropdown:first-of-type {
+        bottom: -9rem;
+        left: -2rem;
+    }
+
+    .dropdown:last-of-type {
+        bottom: -6.5rem;
+        left: 5.3rem;
+    }
+
+    .last-two {
+        display: flex;
+        align-items: center;
+    }
+
+    .last-two button {
+        padding: .7rem;
+    }
+
+    .menu {
+        display: none;
+    }
+    
+    
+    section {
+        padding: 6rem 2rem;
+        gap: 2rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    section > div {
+        height: 80vh;
+    }
+
+    .image-container * {
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .text-container {
+        grid-column: 1 / 1;
+        grid-row: 1 / 1;
+        text-align: start;
+        padding: 0;
+    }
+
+    .text-container > * {
+        margin: 1rem;
+    }
+
+    .text-container h1 {
+        font-size: 4rem;
+        line-height: 1;
+    }
+
+    .text-container p {
+        padding-inline-end: 3rem;
+    }
+
+    .text-container button {
+        justify-self: start;
+        height: fit-content;
+    }
+}
